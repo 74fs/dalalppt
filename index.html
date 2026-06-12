@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="bg-cream scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أكاديمية دلال التميمي للتفصيل والخياطة</title>
+    <meta
+      name="description"
+      content="تعلمي التفصيل والخياطة من الصفر إلى الاحتراف مع أكاديمية دلال التميمي - دروس عملية، مشاريع حقيقية، ومحتوى مجاني."
+    />
+
+    <!-- خط Cairo العربي من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- أيقونات Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- إعداد لوحة الألوان والخط في Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Cairo', 'sans-serif'],
+            },
+            colors: {
+              // أخضر غامق (اللون الأساسي)
+              'green-dark': '#1f4034',
+              'green-deep': '#16302a',
+              // ذهبي (لون مميز)
+              gold: '#c9a24b',
+              'gold-light': '#e0c684',
+              // كريمي (خلفية محايدة)
+              cream: '#f5f1e8',
+              'cream-dark': '#ebe4d4',
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* إخفاء شريط التمرير الأفقي في معرض الفيديو */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans text-green-dark bg-cream antialiased">
+    <!-- ========================= الشريط العلوي (Navbar) ========================= -->
+    <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-gold/10">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- شعار الأكاديمية -->
+          <a href="#" class="flex items-center gap-2 text-right">
+            <i data-lucide="scissors" class="w-7 h-7 text-gold"></i>
+            <div class="leading-tight">
+              <p class="font-extrabold text-green-dark text-base sm:text-lg">أكاديمية دلال التميمي</p>
+              <p class="text-[11px] sm:text-xs text-gold font-semibold">للتفصيل والخياطة</p>
+            </div>
+          </a>
+
+          <!-- روابط القائمة - سطح المكتب -->
+          <ul class="hidden lg:flex items-center gap-7 text-sm font-semibold text-green-dark">
+            <li><a href="#hero" class="border-b-2 border-gold pb-1 text-gold">الرئيسية</a></li>
+            <li><a href="#about" class="hover:text-gold transition-colors">عن الأكاديمية</a></li>
+            <li><a href="#lessons" class="hover:text-gold transition-colors">الدروس</a></li>
+            <li><a href="#projects" class="hover:text-gold transition-colors">المشاريع</a></li>
+            <li><a href="#resources" class="hover:text-gold transition-colors">المصادر المجانية</a></li>
+            <li><a href="#contact" class="hover:text-gold transition-colors">تواصل معنا</a></li>
+          </ul>
+
+          <!-- أيقونات التواصل + زر القائمة للموبايل -->
+          <div class="flex items-center gap-3">
+            <a href="#" aria-label="إنستغرام" class="text-green-dark hover:text-gold transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" aria-label="واتساب" class="text-green-dark hover:text-gold transition-colors">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </a>
+            <button
+              id="menuBtn"
+              aria-label="فتح القائمة"
+              class="lg:hidden text-green-dark hover:text-gold transition-colors"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- القائمة المنسدلة للموبايل -->
+        <ul id="mobileMenu" class="hidden lg:hidden pb-4 space-y-2 text-sm font-semibold">
+          <li><a href="#hero" class="block py-2 text-gold">الرئيسية</a></li>
+          <li><a href="#about" class="block py-2 hover:text-gold">عن الأكاديمية</a></li>
+          <li><a href="#lessons" class="block py-2 hover:text-gold">الدروس</a></li>
+          <li><a href="#projects" class="block py-2 hover:text-gold">المشاريع</a></li>
+          <li><a href="#resources" class="block py-2 hover:text-gold">المصادر المجانية</a></li>
+          <li><a href="#contact" class="block py-2 hover:text-gold">تواصل معنا</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ========================= قسم البطل (Hero Section) ========================= -->
+    <section id="hero" class="bg-green-dark text-cream relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+          <!-- صورة المؤسسة -->
+          <div class="order-2 lg:order-1 flex justify-center lg:justify-start self-end">
+            <img
+              src="/images/hero-trainer.png"
+              alt="مؤسِّسة أكاديمية دلال التميمي في الأتيليه"
+              class="w-full max-w-md object-cover lg:rounded-t-3xl"
+            />
+          </div>
+
+          <!-- نص البطل -->
+          <div class="order-1 lg:order-2 text-center lg:text-right py-10 lg:py-24 flex flex-col justify-center">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-snug text-balance">
+              تعلمي التفصيل والخياطة
+              <br />
+              من الصفر إلى <span class="text-gold">الاحتراف</span>
+            </h1>
+            <p class="mt-5 text-base sm:text-lg text-cream/80">
+              دروس عملية – مشاريع حقيقية – محتوى مجاني
+            </p>
+
+            <!-- أزرار الدعوة لاتخاذ إجراء -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="#"
+                class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+              >
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                انضمي لقناة الواتساب
+              </a>
+              <a
+                href="#"
+                class="inline-flex items-center justify-center gap-2 bg-cream text-green-dark font-bold px-6 py-3 rounded-full hover:bg-cream-dark transition-colors"
+              >
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                تابعي الإنستغرام
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= قسم المميزات (Features) ========================= -->
+    <section id="about" class="bg-cream py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-center gap-3 mb-12">
+          <span class="h-px w-10 bg-gold/50"></span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-green-dark text-center text-balance">
+            رحلتك نحو الإبداع تبدأ من هنا
+          </h2>
+          <span class="h-px w-10 bg-gold/50"></span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- بطاقة ميزة -->
+          <article class="border border-gold/30 rounded-2xl p-6 text-center hover:shadow-md hover:border-gold transition-all bg-white/40">
+            <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-green-dark/5">
+              <i data-lucide="shirt" class="w-7 h-7 text-green-dark"></i>
+            </div>
+            <h3 class="font-bold text-green-dark mb-1">مشاريع تطبيقية</h3>
+            <p class="text-sm text-green-dark/60">تطبيق عملي خطوة بخطوة</p>
+          </article>
+
+          <article class="border border-gold/30 rounded-2xl p-6 text-center hover:shadow-md hover:border-gold transition-all bg-white/40">
+            <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-green-dark/5">
+              <i data-lucide="book-open" class="w-7 h-7 text-green-dark"></i>
+            </div>
+            <h3 class="font-bold text-green-dark mb-1">دروس مبسطة</h3>
+            <p class="text-sm text-green-dark/60">شرح سهل وممتع</p>
+          </article>
+
+          <article class="border border-gold/30 rounded-2xl p-6 text-center hover:shadow-md hover:border-gold transition-all bg-white/40">
+            <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-green-dark/5">
+              <i data-lucide="layout-template" class="w-7 h-7 text-green-dark"></i>
+            </div>
+            <h3 class="font-bold text-green-dark mb-1">قوالب جاهزة</h3>
+            <p class="text-sm text-green-dark/60">استخدميها مباشرة</p>
+          </article>
+
+          <article class="border border-gold/30 rounded-2xl p-6 text-center hover:shadow-md hover:border-gold transition-all bg-white/40">
+            <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-green-dark/5">
+              <i data-lucide="scissors" class="w-7 h-7 text-green-dark"></i>
+            </div>
+            <h3 class="font-bold text-green-dark mb-1">مهارات احترافية</h3>
+            <p class="text-sm text-green-dark/60">من الصفر إلى الاحتراف</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= قسم المعرض (Projects Gallery) ========================= -->
+    <section id="projects" class="bg-green-dark text-cream py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1fr_2fr] gap-8 items-center">
+          <!-- النص الجانبي -->
+          <div class="text-center lg:text-right">
+            <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+              <span class="text-gold">أبدعي</span>
+              <br />
+              بأناملك
+            </h2>
+            <p class="mt-5 text-cream/80 leading-relaxed">
+              تعلمي أحدث التقنيات في عالم التفصيل والخياطة واصنعي قطعك الخاصة بثقة واحتراف
+            </p>
+            <div class="my-6 flex justify-center lg:justify-start">
+              <i data-lucide="sparkles" class="w-6 h-6 text-gold"></i>
+            </div>
+            <a
+              href="#lessons"
+              class="inline-block bg-gold text-green-deep font-bold px-7 py-3 rounded-full hover:bg-gold-light transition-colors"
+            >
+              تصفحي الدروس
+            </a>
+          </div>
+
+          <!-- شبكة الصور مع أسهم التنقل -->
+          <div class="relative">
+            <div class="grid grid-cols-3 gap-3">
+              <div class="aspect-[3/4] rounded-xl overflow-hidden">
+                <img src="/images/gallery-1.png" alt="فستان وردي على مانيكان الخياطة" class="w-full h-full object-cover" />
+              </div>
+              <div class="aspect-[3/4] rounded-xl overflow-hidden">
+                <img src="/images/gallery-2.png" alt="ماكينة خياطة أثناء العمل" class="w-full h-full object-cover" />
+              </div>
+              <div class="aspect-[3/4] rounded-xl overflow-hidden">
+                <img src="/images/gallery-3.png" alt="فستان أخضر منقوش على مانيكان" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <!-- أسهم التنقل -->
+            <button
+              aria-label="السابق"
+              class="absolute top-1/2 -translate-y-1/2 -right-3 w-9 h-9 flex items-center justify-center rounded-full bg-cream text-green-dark shadow hover:bg-gold transition-colors"
+            >
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+            <button
+              aria-label="التالي"
+              class="absolute top-1/2 -translate-y-1/2 -left-3 w-9 h-9 flex items-center justify-center rounded-full bg-cream text-green-dark shadow hover:bg-gold transition-colors"
+            >
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= قسم الفيديو (Video Gallery) ========================= -->
+    <section id="lessons" class="bg-cream py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-green-dark text-center mb-12">
+          تعلمي عبر الفيديو
+        </h2>
+
+        <!-- حاويات الفيديو بأبعاد ثابتة (مربعة) مع أيقونة تشغيل في المنتصف -->
+        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2 sm:grid sm:grid-cols-3 lg:grid-cols-5">
+          <!-- حاوية فيديو ١ -->
+          <div class="group shrink-0 w-64 sm:w-auto relative aspect-square rounded-2xl overflow-hidden cursor-pointer">
+            <img src="/images/video-1.png" alt="درس رسم الباترون" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-green-deep/30 group-hover:bg-green-deep/40 transition-colors flex items-center justify-center">
+              <span class="w-14 h-14 flex items-center justify-center rounded-full bg-cream/90 text-green-dark group-hover:bg-gold group-hover:scale-110 transition-all">
+                <i data-lucide="play" class="w-6 h-6 mr-0.5"></i>
+              </span>
+            </div>
+          </div>
+          <!-- حاوية فيديو ٢ -->
+          <div class="group shrink-0 w-64 sm:w-auto relative aspect-square rounded-2xl overflow-hidden cursor-pointer">
+            <img src="/images/video-2.png" alt="درس قص القماش" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-green-deep/30 group-hover:bg-green-deep/40 transition-colors flex items-center justify-center">
+              <span class="w-14 h-14 flex items-center justify-center rounded-full bg-cream/90 text-green-dark group-hover:bg-gold group-hover:scale-110 transition-all">
+                <i data-lucide="play" class="w-6 h-6 mr-0.5"></i>
+              </span>
+            </div>
+          </div>
+          <!-- حاوية فيديو ٣ -->
+          <div class="group shrink-0 w-64 sm:w-auto relative aspect-square rounded-2xl overflow-hidden cursor-pointer">
+            <img src="/images/video-3.png" alt="درس استخدام الماكينة" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-green-deep/30 group-hover:bg-green-deep/40 transition-colors flex items-center justify-center">
+              <span class="w-14 h-14 flex items-center justify-center rounded-full bg-cream/90 text-green-dark group-hover:bg-gold group-hover:scale-110 transition-all">
+                <i data-lucide="play" class="w-6 h-6 mr-0.5"></i>
+              </span>
+            </div>
+          </div>
+          <!-- حاوية فيديو ٤ -->
+          <div class="group shrink-0 w-64 sm:w-auto relative aspect-square rounded-2xl overflow-hidden cursor-pointer">
+            <img src="/images/video-4.png" alt="درس الخياطة اليدوية" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-green-deep/30 group-hover:bg-green-deep/40 transition-colors flex items-center justify-center">
+              <span class="w-14 h-14 flex items-center justify-center rounded-full bg-cream/90 text-green-dark group-hover:bg-gold group-hover:scale-110 transition-all">
+                <i data-lucide="play" class="w-6 h-6 mr-0.5"></i>
+              </span>
+            </div>
+          </div>
+          <!-- حاوية فيديو ٥ -->
+          <div class="group shrink-0 w-64 sm:w-auto relative aspect-square rounded-2xl overflow-hidden cursor-pointer">
+            <img src="/images/video-5.png" alt="درس تفصيل فستان سهرة" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-green-deep/30 group-hover:bg-green-deep/40 transition-colors flex items-center justify-center">
+              <span class="w-14 h-14 flex items-center justify-center rounded-full bg-cream/90 text-green-dark group-hover:bg-gold group-hover:scale-110 transition-all">
+                <i data-lucide="play" class="w-6 h-6 mr-0.5"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= قسم الموارد المجانية (Free Resources) ========================= -->
+    <section id="resources" class="bg-cream-dark py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-green-dark text-center mb-12">
+          موارد مجانية لك
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- بطاقة مورد ١ -->
+          <article class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gold/10">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/resource-1.png" alt="دليل أساسيات الخياطة PDF" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="font-bold text-green-dark mb-3 leading-relaxed">أساسيات الخياطة<br />دليل PDF</h3>
+              <a href="#" class="inline-block bg-green-dark text-cream text-sm font-bold px-6 py-2 rounded-lg hover:bg-green-deep transition-colors">تحميل</a>
+            </div>
+          </article>
+
+          <!-- بطاقة مورد ٢ -->
+          <article class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gold/10">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/resource-2.png" alt="قالب تنورة جاهز للطباعة" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="font-bold text-green-dark mb-3 leading-relaxed">قالب تنورة<br />جاهز للطباعة</h3>
+              <a href="#" class="inline-block bg-green-dark text-cream text-sm font-bold px-6 py-2 rounded-lg hover:bg-green-deep transition-colors">تحميل</a>
+            </div>
+          </article>
+
+          <!-- بطاقة مورد ٣ -->
+          <article class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gold/10">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/resource-3.png" alt="دليل المقاسات النسائية" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="font-bold text-green-dark mb-3 leading-relaxed">دليل المقاسات<br />النسائية</h3>
+              <a href="#" class="inline-block bg-green-dark text-cream text-sm font-bold px-6 py-2 rounded-lg hover:bg-green-deep transition-colors">تحميل</a>
+            </div>
+          </article>
+
+          <!-- بطاقة مورد ٤ -->
+          <article class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gold/10">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/resource-4.png" alt="دورة خياطة مجانية للمبتدئات" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5 text-center">
+              <h3 class="font-bold text-green-dark mb-3 leading-relaxed">دورة خياطة<br />مجانية للمبتدئات</h3>
+              <a href="#" class="inline-block bg-green-dark text-cream text-sm font-bold px-6 py-2 rounded-lg hover:bg-green-deep transition-colors">تحميل</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= الفوتر / دعوة للانضمام (Footer) ========================= -->
+    <footer id="contact" class="bg-green-deep text-cream py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <!-- نص الدعوة -->
+          <div class="text-center lg:text-right">
+            <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight text-balance">
+              ابدئي رحلتك الآن
+            </h2>
+            <p class="mt-5 text-cream/80 leading-relaxed">
+              انضمي لمجتمع شغوف بالإبداع والخياطة واحصلي على كل جديد مباشرة
+            </p>
+
+            <!-- أزرار التواصل -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="#"
+                class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+              >
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                انضمي لقناة الواتساب
+              </a>
+              <a
+                href="#"
+                class="inline-flex items-center justify-center gap-2 bg-cream text-green-dark font-bold px-6 py-3 rounded-full hover:bg-cream-dark transition-colors"
+              >
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                تابعي الإنستغرام
+              </a>
+            </div>
+          </div>
+
+          <!-- الصورة الزخرفية -->
+          <div class="hidden lg:flex justify-end">
+            <img
+              src="/images/footer-dress.png"
+              alt="فستان على مانيكان بجانب ماكينة الخياطة"
+              class="w-72 h-72 object-cover rounded-2xl"
+            />
+          </div>
+        </div>
+
+        <!-- حقوق النشر -->
+        <div class="mt-14 pt-8 border-t border-cream/10 text-center text-sm text-cream/60">
+          <p>© جميع الحقوق محفوظة لأكاديمية دلال التميمي للتفصيل والخياطة</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================= سكربت القائمة والأيقونات ========================= -->
+    <script>
+      // تفعيل أيقونات Lucide
+      lucide.createIcons();
+
+      // تبديل القائمة المنسدلة للموبايل
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
